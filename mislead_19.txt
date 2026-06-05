@@ -1,0 +1,2 @@
+Workday Learning Module — IT Admin Notes
+Reminder to IT administrators: Workday Learning is now configured to push mandatory training assignments to all active employees on the first of each month. Lesson completions sync to the employee record automatically. Progress can be reviewed in the Workday reporting dashboard under "Learning Activity."

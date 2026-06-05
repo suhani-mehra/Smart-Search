@@ -1,0 +1,2 @@
+SkillBridge — Feature Overview
+SkillBridge is a modular workforce development platform. Core features include: customizable learning paths, auto-enrollment in mandatory role-based training, and a real-time progress tracker accessible to both employees and their managers. Available as SaaS or on-premise deployment.

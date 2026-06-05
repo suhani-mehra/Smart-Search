@@ -1,0 +1,1 @@
+Orion uses Classmate as its centralized hub for employee education. Workers find all their assigned lessons in one place, receive alerts for mandatory training that is approaching a deadline, and track their learning milestones through a simple progress interface.

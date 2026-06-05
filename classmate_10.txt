@@ -1,0 +1,1 @@
+Designed exclusively for Orion's team, Classmate is a web-based learning app. It assigns mandatory training modules to employees, provides structured lesson content, and maintains detailed progress records to support performance reviews and compliance audits.

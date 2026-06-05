@@ -1,0 +1,1 @@
+Orion's Classmate platform is a fully digital training environment for employees. Workers log in, complete lessons at their convenience, check which mandatory trainings are still pending, and view a running snapshot of their overall learning progress.

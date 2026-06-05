@@ -1,0 +1,1 @@
+The Classmate application was built specifically for Orion's workforce. It centralizes employee education by hosting lessons, flagging required trainings that must be completed, and keeping a detailed log of each person's course progress.

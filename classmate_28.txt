@@ -1,0 +1,1 @@
+Orion's Classmate application is the backbone of its employee training program. The digital platform delivers lessons, manages mandatory training assignments, and produces progress data that helps the organization measure the effectiveness of its learning initiatives.

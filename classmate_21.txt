@@ -1,0 +1,1 @@
+Orion's Classmate app acts as a digital classroom for every employee. Lessons are available around the clock, mandatory training is automatically assigned based on role, and the system tracks progress across the entire workforce in one place.

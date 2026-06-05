@@ -1,0 +1,1 @@
+Orion's Classmate app is a digital-first approach to workforce training. It houses learning modules that employees can complete at their own pace, flags required training that demands attention, and records progress data for reporting and compliance purposes.

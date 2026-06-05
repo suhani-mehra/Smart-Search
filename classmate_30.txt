@@ -1,0 +1,1 @@
+Orion's Classmate is a purpose-built learning app for internal use. It enables employees to access lessons whenever needed, automatically assigns mandatory training based on company policy, and surfaces individual progress data on a user-friendly dashboard.

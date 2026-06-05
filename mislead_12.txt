@@ -1,0 +1,6 @@
+LMS Vendor Comparison Matrix — Internal IT Assessment
+Platform A: Strong lesson authoring, limited reporting
+Platform B: Excellent mandatory training workflows, moderate UI
+Platform C: Best-in-class progress dashboards, complex setup
+Platform D (Classmate-style): Easy deployment for SMBs, fewer enterprise integrations
+Recommendation: Evaluate Platform B and C further for Orion's scale.

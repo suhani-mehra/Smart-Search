@@ -1,0 +1,1 @@
+Classmate is the learning application Orion provides to all its employees. Through the app, workers engage with training content, meet mandatory learning requirements, and keep track of how many courses they've completed versus how many remain.

@@ -1,0 +1,1 @@
+Classmate is an online education tool exclusive to Orion staff. It organizes workplace learning by presenting lessons in a logical sequence, assigning trainings that are compulsory for certain roles, and recording completion rates so progress is never lost.

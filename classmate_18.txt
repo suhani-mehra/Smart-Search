@@ -1,0 +1,1 @@
+Classmate is Orion's employee-facing learning platform. It hosts a variety of training modules, ensures mandatory courses are completed on time, and offers each user a personalized progress tracker to keep their development on course.

@@ -1,0 +1,1 @@
+Classmate is Orion's internal digital learning platform, designed to support employee development through structured online coursework. Staff can access training modules at any time, complete mandatory compliance lessons, and monitor their own learning progress through a centralized dashboard.

@@ -1,0 +1,1 @@
+Classmate serves as Orion's go-to learning management system. Through the app, workers receive assigned training content, work through interactive lessons, and track how far they've progressed across multiple learning paths.
