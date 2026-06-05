@@ -4,6 +4,8 @@ const path = require("path");
 const FOLDER_PATH = "./test_files";
 const QUERY = "classmate training courses lessons progress mandatory employees";
 
+const EXPECTED_CORRECT_TOTAL = 40;
+
 // ---------- text helpers ----------
 function normalize(s) {
   return (s || "")
@@ -32,7 +34,8 @@ function loadFiles(folderPath) {
     return {
       fileName: file,
 
-      // filename is ONLY used for ground truth, not search
+      // filename is ONLY used for grading correctness
+      // it is NOT searched by the regex algorithm
       isCorrect: file.toLowerCase().startsWith("classmate"),
 
       // searchable text is ONLY file content
@@ -59,20 +62,19 @@ function regexSearchFiles(query, files) {
     // IMPORTANT: only content is searched
     const content = normalize(file.content);
 
-    // phrase match
+    // Full phrase match
     if (phraseRegex.test(content)) {
       score += 25;
     }
 
-    // word matches
+    // Individual query word matches
     for (const regex of wordRegexes) {
-      const matches = content.match(regex);
-      if (matches) {
+      if (regex.test(content)) {
         score += 5;
       }
     }
 
-    // extra weighting for words that prove it is actually about the platform
+    // Extra weights for terms that suggest the file is really about the Classmate platform
     const strongTerms = [
       "platform",
       "training",
@@ -83,7 +85,10 @@ function regexSearchFiles(query, files) {
       "progress",
       "reports",
       "employees",
-      "managers"
+      "managers",
+      "learning",
+      "digital",
+      "on-demand"
     ];
 
     for (const term of strongTerms) {
@@ -109,21 +114,38 @@ function regexSearchFiles(query, files) {
   return results;
 }
 
-// ---------- accuracy evaluation ----------
-function countCorrectAtK(results, k) {
+// ---------- evaluation ----------
+function evaluateAtK(results, k, correctTotal) {
   const topK = results.slice(0, k);
-  const correct = topK.filter(r => r.isCorrect).length;
+  const correctInTopK = topK.filter(r => r.isCorrect).length;
+  const incorrectInTopK = topK.length - correctInTopK;
+
+  const precision = topK.length === 0
+    ? 0
+    : +(correctInTopK / topK.length * 100).toFixed(2);
+
+  const recall = correctTotal === 0
+    ? 0
+    : +(correctInTopK / correctTotal * 100).toFixed(2);
 
   return {
     topK: k,
-    correct,
-    total: topK.length,
-    accuracy: topK.length === 0 ? 0 : +(correct / topK.length * 100).toFixed(2)
+    correctInTopK,
+    incorrectInTopK,
+    totalShown: topK.length,
+    precision,
+    recall
   };
 }
 
+// ---------- run benchmark ----------
 function runBenchmark() {
   const files = loadFiles(FOLDER_PATH);
+
+  const actualCorrectTotal = files.filter(f => f.isCorrect).length;
+  const actualIncorrectTotal = files.length - actualCorrectTotal;
+
+  const correctTotal = actualCorrectTotal || EXPECTED_CORRECT_TOTAL;
 
   const start = performance.now();
   const results = regexSearchFiles(QUERY, files);
@@ -133,6 +155,8 @@ function runBenchmark() {
   console.log("-----------------------------------");
   console.log("Query:", QUERY);
   console.log("Files tested:", files.length);
+  console.log("Correct files:", actualCorrectTotal);
+  console.log("Incorrect files:", actualIncorrectTotal);
   console.log("Results returned:", results.length);
   console.log("Search time:", +(end - start).toFixed(3), "ms");
   console.log("");
@@ -140,14 +164,18 @@ function runBenchmark() {
   const checks = [20, 30, 40, 50];
 
   for (const k of checks) {
-    const stat = countCorrectAtK(results, k);
+    const stat = evaluateAtK(results, k, correctTotal);
+
     console.log(
-      `Top ${k}: ${stat.correct}/${stat.total} correct (${stat.accuracy}%)`
+      `Top ${k}: ${stat.correctInTopK}/${stat.totalShown} correct ` +
+      `| Precision: ${stat.precision}% ` +
+      `| Recall of 40 correct files: ${stat.recall}% ` +
+      `| Incorrect in top ${k}: ${stat.incorrectInTopK}`
     );
   }
 
   console.log("");
-  console.log("Top results:");
+  console.log("Top 10 results:");
   results.slice(0, 10).forEach((r, i) => {
     console.log(
       `${i + 1}. ${r.fileName} | score=${r.score} | correct=${r.isCorrect}`
