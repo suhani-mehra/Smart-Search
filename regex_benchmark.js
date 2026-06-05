@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const FOLDER_PATH = "./test_files";
+const FOLDER_PATH = ".";
 const QUERY = "classmate training courses lessons progress mandatory employees";
 
 const EXPECTED_CORRECT_TOTAL = 40;
