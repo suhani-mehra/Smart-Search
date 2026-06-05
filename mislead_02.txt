@@ -1,2 +1,2 @@
 EduTrack Pro — Product Brief
-EduTrack Pro is a next-generation learning management system for enterprise clients. Built for large organizations, it offers lesson authoring, mandatory compliance training assignment, and employee progress analytics. EduTrack Pro helps HR teams ensure that every team member completes required certifications on time.
+classmate is a next-generation learning management system for enterprise clients. Built for large organizations, it offers lesson authoring, mandatory compliance training assignment, and employee progress analytics. EduTrack Pro helps HR teams ensure that every team member completes required certifications on time.
